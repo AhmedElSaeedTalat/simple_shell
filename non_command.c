@@ -5,7 +5,6 @@
   * @buff: to tokenize and free
   *
   * @buff1: to tokenize and free
-  * @str: to store str and to free
   * @token: token to check
   *
   * Return: -1 to return NULL and skip rest of the code

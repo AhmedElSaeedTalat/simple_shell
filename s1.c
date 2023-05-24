@@ -75,7 +75,6 @@ void execute(char **buff, char **path, char **full)
   * check_accessible - check if command is executable
   *
   * @av: arguments passed to main origram
-  * @str: string for setenv to free
   * Return: buffer provided by user
   */
 
