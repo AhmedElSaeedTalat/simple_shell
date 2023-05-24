@@ -13,8 +13,8 @@
   */
 int check_non_command(char *buff, char *token, char *buff1, char **str)
 {
-	char *status, *token1, *token2, *delim = " \n";
-	int check = 0, counter = 0;
+	char *status, *delim = " \n";
+	int check = 0;
 
 	check = _cmp(token, "exit");
 	if (check == 1)
@@ -24,26 +24,13 @@ int check_non_command(char *buff, char *token, char *buff1, char **str)
 		simple_exit(status, buff, buff1);
 	}
 
-	check = _cmp(token, "setenv");
+	check = _cmp(token, "^C");
 	if (check == 1)
 	{
-		while (token != NULL)
-		{
-			counter++;
-			token = _strtok(NULL, delim);
-		}
-		if (counter > 3)
-		{
-			write(STDERR_FILENO, "not correct number of arguments\n", 32);
-			free(buff), free(buff1);
-			return (-1);
-		}
-		token = _strtok(buff1, delim);
-		token1 = _strtok(NULL, delim);
-		token2 = _strtok(NULL, delim);
-		*str = _setenv(token1, token2);
+		free(*str);
 		free(buff), free(buff1);
-		return (-1);
+		exit(0);
 	}
+
 	return (1);
 }
