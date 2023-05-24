@@ -38,7 +38,7 @@ void simple_exit(char *status, char *buff, char *buff1)
 	} else
 	{
 		free(buff), free(buff1);
-		_print("logout\n");
+		_print("logout\n\n");
 		exit(0);
 	}
 }
