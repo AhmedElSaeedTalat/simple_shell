@@ -9,6 +9,7 @@ char *get_line()
 {
 	char *buff = NULL;
 	ssize_t input;
+	int i;
 
 	if (isatty(0))
 		_print("#cisfun$ ");
@@ -21,7 +22,15 @@ char *get_line()
 		exit(EXIT_SUCCESS);
 	} else if (input == -1)
 		exit(EXIT_FAILURE);
-	return (buff);
+	i = 0;
+	while (buff[i] != '\n')
+	{
+		if (buff[i] != ' ')
+			return (buff);
+		i++;
+	}
+	free(buff);
+	return (NULL);
 }
 
 /**
@@ -85,8 +94,7 @@ char *check_accessible(char **av)
 	int if_full, check2 = 0;
 
 	buff = get_line();
-	if (buff == NULL || (*buff == ' ' && _getlen(buff) == 2) ||
-			(*buff == '\n' && _getlen(buff) == 1))
+	if (buff == NULL)
 	{
 		free(buff);
 		return (NULL);
