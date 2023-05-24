@@ -10,7 +10,7 @@ char *get_line()
 	char *buff = NULL;
 	ssize_t input;
 
-	_putchar('$'), _putchar(' ');
+	_print("#cisfun$");
 	input = _getline(&buff);
 	if (input == 0)
 	{
