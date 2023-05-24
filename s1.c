@@ -10,11 +10,14 @@ char *get_line()
 	char *buff = NULL;
 	ssize_t input;
 
-	_print("#cisfun$ ");
+	if (isatty(0))
+		_print("#cisfun$ ");
 	input = _getline(&buff);
 	if (input == 0)
 	{
 		free(buff);
+		if (isatty(0))
+			_putchar('\n');
 		exit(0);
 	}
 	return (buff);
