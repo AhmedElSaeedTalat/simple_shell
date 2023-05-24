@@ -16,7 +16,7 @@ char *get_line()
 	{
 		free(buff);
 		_putchar('\n');
-		exit(1);
+		exit(0);
 	}
 	return (buff);
 }
