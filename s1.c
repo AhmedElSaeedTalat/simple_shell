@@ -19,7 +19,8 @@ char *get_line()
 		if (isatty(0))
 			_putchar('\n');
 		exit(EXIT_SUCCESS);
-	}
+	} else if (input == -1)
+		exit(EXIT_FAILURE);
 	return (buff);
 }
 
