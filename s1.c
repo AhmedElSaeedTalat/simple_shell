@@ -85,6 +85,12 @@ char *check_accessible(char **av, char **str)
 	int if_full, check2 = 0;
 
 	buff = get_line();
+	if (buff == NULL || (*buff == ' ' && _getlen(buff) == 2) ||
+			(*buff == '\n' && _getlen(buff) == 1))
+	{
+		free(buff);
+		return (NULL);
+	}
 	buff1 = malloc(sizeof(char) * (_getlen(buff) + 1));
 	if (buff1 == NULL)
 	{
