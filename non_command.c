@@ -24,6 +24,14 @@ int check_non_command(char *buff, char *token, char *buff1, char **str)
 		simple_exit(status, buff, buff1);
 	}
 
+	check = _cmp(token, "env");
+	if (check == 1)
+	{
+		free(buff), free(buff1);
+		print_env();
+		return (-1);
+	}
+
 	check = _cmp(token, "^C");
 	if (check == 1)
 	{

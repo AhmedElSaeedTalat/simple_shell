@@ -47,7 +47,7 @@ void execute(char **buff, char **path, char **full)
 		i++;
 	}
 	argv[i] = NULL;
-	*path = _getenv("PATH"),
+	*path = _getenv("PATH");
 	envp[0] = *path;
 	envp[1] = NULL;
 	if (access(token1, X_OK) != 0)
@@ -82,7 +82,7 @@ void execute(char **buff, char **path, char **full)
 char *check_accessible(char **av, char **str)
 {
 	char *buff, *buff1, *token, *full = NULL, *delim = " ;\n";
-	int if_full, check = 0, check2 = 0;
+	int if_full, check2 = 0;
 
 	buff = get_line();
 	buff1 = malloc(sizeof(char) * (_getlen(buff) + 1));
@@ -96,13 +96,6 @@ char *check_accessible(char **av, char **str)
 	check2 = check_non_command(buff, token, buff1, str);
 	if (check2 == -1)
 		return (NULL);
-	check = _cmp(token, "env");
-	if (check == 1)
-	{
-		free(buff), free(buff1);
-		print_env();
-		return (NULL);
-	}
 	if_full = check_full(token);
 	if (access(token, X_OK) != 0)
 	{
