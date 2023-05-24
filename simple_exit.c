@@ -34,6 +34,8 @@ void simple_exit(char *status, char *buff, char *buff1)
 			i++;
 		}
 		free(buff), free(buff1);
+		if (code > 255)
+			exit(code % 256);
 		exit(code);
 	} else
 	{
