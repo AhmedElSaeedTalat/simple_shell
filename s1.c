@@ -155,8 +155,6 @@ int main(int argc, char *argv[])
 		if (pid == 0)
 		{
 			execute(&buff, &full, &path);
-			perror(argv[0]);
-			exit(EXIT_FAILURE);
 		} else
 		{
 			wait(&status);
