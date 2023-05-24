@@ -38,6 +38,7 @@ void simple_exit(char *status, char *buff, char *buff1)
 	} else
 	{
 		free(buff), free(buff1);
+		_print("exiting shell...\n");
 		exit(0);
 	}
 }
