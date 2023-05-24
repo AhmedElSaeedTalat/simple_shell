@@ -82,7 +82,7 @@ void execute(char **buff, char **path, char **full)
 char *check_accessible(char **av, char **str)
 {
 	char *buff, *buff1, *token, *full = NULL, *delim = " ;\n";
-	int check = 0, check2 = 0;
+	int if_full, check = 0, check2 = 0;
 
 	buff = get_line();
 	buff1 = malloc(sizeof(char) * (_getlen(buff) + 1));
@@ -103,13 +103,19 @@ char *check_accessible(char **av, char **str)
 		print_env();
 		return (NULL);
 	}
+	if_full = check_full(token);
 	if (access(token, X_OK) != 0)
 	{
-		full = get_path(token);
-		if (access(token, X_OK) != 0 &&  full == NULL)
+		if (if_full == 1)
 		{
 			perror(av[0]);
 			free(buff), free(buff1), free(full);
+			return (NULL);
+		}
+		full = get_path(token);
+		if (access(token, X_OK) != 0 &&  full == NULL)
+		{
+			custom_error(token), free(buff), free(buff1), free(full);
 			return (NULL);
 		}
 	}
