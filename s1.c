@@ -79,7 +79,7 @@ void execute(char **buff, char **path, char **full)
   * Return: buffer provided by user
   */
 
-char *check_accessible(char **av, char **str)
+char *check_accessible(char **av)
 {
 	char *buff, *buff1, *token, *full = NULL, *delim = " ;\n";
 	int if_full, check2 = 0;
@@ -99,7 +99,7 @@ char *check_accessible(char **av, char **str)
 	}
 	_cpy(buff1, buff);
 	token = _strtok(buff, delim);
-	check2 = check_non_command(buff, token, buff1, str);
+	check2 = check_non_command(buff, token, buff1);
 	if (check2 == -1)
 		return (NULL);
 	if_full = check_full(token);
@@ -135,13 +135,13 @@ int main(int argc, char *argv[])
 {
 	pid_t pid;
 	int status;
-	char *buff = NULL, *full = NULL, *path = NULL, *str = NULL;
+	char *buff = NULL, *full = NULL, *path = NULL;
 	(void) argc;
 
 	signal(SIGINT, handle);
 	while (1)
 	{
-		buff = check_accessible(argv, &str);
+		buff = check_accessible(argv);
 		if (buff != NULL)
 		{
 			pid = fork();
@@ -159,7 +159,6 @@ int main(int argc, char *argv[])
 		{
 			wait(&status);
 			free(full), free(path), free(buff);
-			free(str);
 		}
 	}
 	free(full), free(path), free(buff);

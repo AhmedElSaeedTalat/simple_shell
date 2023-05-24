@@ -11,7 +11,7 @@
   * Return: -1 to return NULL and skip rest of the code
   * or 1 in case not command line was passed
   */
-int check_non_command(char *buff, char *token, char *buff1, char **str)
+int check_non_command(char *buff, char *token, char *buff1)
 {
 	char *status, *delim = " \n";
 	int check = 0;
@@ -19,7 +19,6 @@ int check_non_command(char *buff, char *token, char *buff1, char **str)
 	check = _cmp(token, "exit");
 	if (check == 1)
 	{
-		free(*str);
 		status = _strtok(NULL, delim);
 		simple_exit(status, buff, buff1);
 	}
@@ -35,7 +34,6 @@ int check_non_command(char *buff, char *token, char *buff1, char **str)
 	check = _cmp(token, "^C");
 	if (check == 1)
 	{
-		free(*str);
 		free(buff), free(buff1);
 		exit(EXIT_SUCCESS);
 	}
