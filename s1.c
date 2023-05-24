@@ -18,7 +18,7 @@ char *get_line()
 		free(buff);
 		if (isatty(0))
 			_putchar('\n');
-		exit(0);
+		exit(EXIT_SUCCESS);
 	}
 	return (buff);
 }

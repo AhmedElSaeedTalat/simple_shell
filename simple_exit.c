@@ -38,6 +38,6 @@ void simple_exit(char *status, char *buff, char *buff1)
 	} else
 	{
 		free(buff), free(buff1);
-		exit(0);
+		exit(EXIT_SUCCESS);
 	}
 }
