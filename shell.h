@@ -26,5 +26,5 @@ int check_non_command(char *buff, char *token, char *buff1, char **str);
 void check_multiple_command(char *str);
 void handle(int sig);
 int check_full(char *str);
-void custom_error(char *str);
+void custom_error(char *str, char **av);
 #endif

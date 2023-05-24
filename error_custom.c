@@ -28,9 +28,12 @@ int check_full(char *str)
   * in case command not found
   *
   * @str: str name to include in the error message
+  * @av: array to pass program name
   */
-void custom_error(char *str)
+void custom_error(char *str, char **av)
 {
+	write(STDERR_FILENO, av[0], _getlen(av[0]));
+	write(STDERR_FILENO, ": 1: ", 5);
 	write(STDERR_FILENO, str, _getlen(str));
-	write(STDERR_FILENO, ": command not found\n", 20);
+	write(STDERR_FILENO, ": not found\n", 12);
 }

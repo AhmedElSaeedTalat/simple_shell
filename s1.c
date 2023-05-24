@@ -115,7 +115,7 @@ char *check_accessible(char **av, char **str)
 		full = get_path(token);
 		if (access(token, X_OK) != 0 &&  full == NULL)
 		{
-			custom_error(token), free(buff), free(buff1), free(full);
+			custom_error(token, av), free(buff), free(buff1), free(full);
 			return (NULL);
 		}
 	}
