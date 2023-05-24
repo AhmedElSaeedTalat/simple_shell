@@ -6,6 +6,6 @@
 void handle(int sig)
 {
 	(void) sig;
-	exit(0);
+	exit(EXIT_SUCCESS);
 }
 

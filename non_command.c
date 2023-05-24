@@ -29,7 +29,7 @@ int check_non_command(char *buff, char *token, char *buff1, char **str)
 	{
 		free(*str);
 		free(buff), free(buff1);
-		exit(0);
+		exit(EXIT_SUCCESS);
 	}
 
 	return (1);
