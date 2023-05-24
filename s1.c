@@ -131,6 +131,7 @@ int main(int argc, char *argv[])
 	char *buff = NULL, *full = NULL, *path = NULL, *str = NULL;
 	(void) argc;
 
+	signal(SIGINT, handle);
 	while (1)
 	{
 		buff = check_accessible(argv, &str);

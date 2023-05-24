@@ -24,4 +24,5 @@ void simple_exit(char *status, char *buff, char *buff1);
 char *_setenv(char *name, char *value);
 int check_non_command(char *buff, char *token, char *buff1, char **str);
 void check_multiple_command(char *str);
+void handle(int sig);
 #endif
