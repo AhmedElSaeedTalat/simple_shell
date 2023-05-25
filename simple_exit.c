@@ -17,13 +17,13 @@ void simple_exit(char *status, char *buff, char *buff1)
 		{
 			if (status[0] == '-')
 			{
-				write(STDERR_FILENO, "./hsh: 1: exit: Illegal number:", 31);
+				write(STDERR_FILENO, "./hsh: 1: exit: Illegal number: ", 32);
 				write(STDERR_FILENO, status, _getlen(status));
 				write(STDERR_FILENO, "\n", 1);
 				free(buff), free(buff1), exit(2);
 			} else if (status[i] < 48  || status[i] > 57)
 			{
-				write(STDERR_FILENO, "./hsh: 1: exit: Illegal number:", 31);
+				write(STDERR_FILENO, "./hsh: 1: exit: Illegal number: ", 32);
 				write(STDERR_FILENO, status, _getlen(status));
 				write(STDERR_FILENO, "\n", 1);
 				free(buff), free(buff1);
